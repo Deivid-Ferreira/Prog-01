@@ -1,0 +1,197 @@
+Criar vetor a com 10 elementos float e vetor b com 15 elementos float.
+• Ciar e fazer uso das funções a seguir:
+◦ minv para achar o menor elemento em vetor com protótipo:
+float minv (float v[ ], int n) ou float minv (float * v, int n)
+◦ sumv para achar a soma dos elementos do vetor com protótipo:
+float sumv (float v[ ], int n) ou float sumv (float * v, int n)
+◦ meanv para achar o valor médio dos elementos do vetor com
+protótipo:
+float meanv (float v[ ], int n) ou float meanv (float * v, int n)
+
+--------------------------------------------------------------------------
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+float minvA (float *veta);
+float sumvA (float *veta);
+float medvA (float *veta);
+
+float minvB (float *vetb);
+float sumvB (float *vetb);
+float medvB (float *vetb);
+
+int main (){
+
+float veta[10];
+float vetb[5];
+
+int i;
+
+float menorA;
+float somaA;
+float mediaA;
+
+float menorB;
+float somaB;
+float mediaB;
+
+
+
+int select;
+
+//----------------------------------------------------------
+            printf("--Digite o valor do vetor A--");
+    for(i=0;i<10;i++){
+
+        printf("\nDigite o valor do vetor N [%d]vetA: ", i);
+        scanf("%f",&veta[i]);
+    }
+            printf("\n\n\n--Digite o valor do vetor B--");
+       for(i=0;i<5;i++){                                        //VETA A e VET B
+
+        printf("\nDigite o valor do vetor N [%d]vetB: ", i);
+        scanf("%f",&vetb[i]);
+    }
+//-----------------------------------------------------------
+
+    printf("\n\n---O que deseja?---\n\n");
+
+    printf(" -- 1 -- Menor numero do vetor.\n");
+    printf(" -- 2 -- Soma dos elementos.\n");
+    printf(" -- 3 -- Achar o valor medio dos vetores.\n");
+    printf(" -- 0 -- Finalizar!\n\n\n       Selecao : ");
+        scanf("%i", &select);
+
+           while(select!=0){
+
+             if(select==1){
+                menorA =  minvA(veta);
+                menorB =  minvB(vetb);
+
+                 printf("\n\nMenor numero entre os vetores de A e : %f\n\n\n\n", menorA);
+                 printf("\n\nMenor numero entre os vetores de B e : %f\n\n\n\n", menorB);
+                 }
+
+            if (select==2){
+
+                    somaA = sumvA(veta);
+                    somaB = sumvB(vetb);
+
+                 printf("\n\nA soma entre os vetores de A e : %f\n\n", somaA);
+                 printf("\n\nA soma entre os vetores de B e : %f\n\n", somaB);
+                 }
+            if (select==3){
+
+                mediaA = medvA(veta);
+                mediaB = medvB(vetb);
+
+                printf("\n\nA media entre os vetores de A e : %f\n\n\n\n", mediaA);
+                printf("\n\nA media entre os vetores de B e : %f\n\n\n\n", mediaB);
+                 }
+
+                 printf("\n\n---O que deseja?---\n\n");
+
+                 printf(" -- 1 -- Menor numero do vetor.\n");
+                 printf(" -- 2 -- Soma dos elementos.\n");
+                 printf(" -- 3 -- Achar o valor medio dos vetores.\n");
+                 printf(" -- 0 -- Finalizar!\n\n\n       Selecao : ");
+                 scanf("%i", &select);
+
+
+                 }
+
+ return 0;
+}
+
+
+//-------------------------------------
+
+// CALC VET A
+
+
+float minvA (float *veta){
+
+    int i;
+    int menoN = 0;
+
+     menoN = veta[0];
+
+    for(i=0;i<10;i++){
+        if(veta[i]< menoN){
+            menoN = veta[i];
+        }
+    }
+return menoN;
+}
+
+float sumvA (float *veta){
+    int i;
+    float sum = 0;
+
+    for(i=0;i<10;i++){
+
+        sum = sum + veta[i];
+    }
+    return sum;
+
+}
+
+float medvA (float *veta){
+
+int i;
+float med = 0;
+int som = 0;
+
+for(i=0;i<10;i++){
+        som =  som + veta[i];
+
+}
+med = som/10;
+    return med;
+}
+//-----------------------------------------------
+
+// CALC VET B
+
+float minvB (float *vetb){
+
+    int i;
+    int menoN = 0;
+
+     menoN = vetb[0];
+
+    for(i=0;i<5;i++){
+        if(vetb[i]< menoN){
+            menoN = vetb[i];
+        }
+    }
+return menoN;
+}
+
+float sumvB (float *vetb){
+    int i;
+    float sum = 0;
+
+    for(i=0;i<5;i++){
+
+        sum = sum + vetb[i];
+    }
+    return sum;
+
+}
+
+float medvB (float *vetb){
+
+int i;
+float med = 0;
+int som = 0;
+
+for(i=0;i<10;i++){
+        som =  som + vetb[i];
+
+}
+med = som/5;
+    return med;
+}
